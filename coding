@@ -1,0 +1,59 @@
+abstract class Animal {
+ String name;
+ int age;
+ Animal(String name, int age) {
+     this.name = name;
+     this.age = age;
+ }
+ abstract void makeSound();
+}
+interface CanFly {}
+class Dog extends Animal {
+ Dog(String name, int age) {
+     super(name, age);
+ }
+ void makeSound() {
+     System.out.println("Bark");
+ }
+}
+class Bird extends Animal implements CanFly {
+ Bird(String name, int age) {
+     super(name, age);
+ }
+ void makeSound() {
+     System.out.println("Chirp");
+ }
+}
+class Fish extends Animal {
+ Fish(String name, int age) {
+     super(name, age);
+ }
+ void makeSound() {
+     System.out.println("Blub");
+ }
+}
+public class zoomanage {
+ public static void main(String[] args) {
+     Animal dog = new Dog("Dog", 5);
+     Animal bird = new Bird("Bird", 2);
+     Animal fish = new Fish("Fish", 1);
+     System.out.println("-----ZOO MANAGEMENT SYSTEM-----");
+     System.out.println("Name: " + dog.name);
+     System.out.print("Sound: ");
+     dog.makeSound();
+     System.out.println("Can fly: " + (dog instanceof CanFly ? "Yes" : "No"));
+     System.out.println();
+
+     
+     System.out.println("Name: " + bird.name);
+     System.out.print("Sound: ");
+     bird.makeSound();
+     System.out.println("Can fly: " + (bird instanceof CanFly ? "Yes" : "No"));
+     System.out.println();
+
+     System.out.println("Name: " + fish.name);
+     System.out.print("Sound: ");
+     fish.makeSound();
+     System.out.println("Can fly: " + (fish instanceof CanFly ? "Yes" : "No"));
+ }
+}
